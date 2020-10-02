@@ -5,18 +5,20 @@ var currencyData;
 DateTime timeData;
 var symbolsData;
 var currencyKeyData;
-void getData() async {
-  const String url =
-      "http://data.fixer.io/api/latest?access_key=cc35a9863c9b2270ec05624ca2049d73";
+const String acces_key = "0a418b1485c8574c8fc19e0dda8d1d09";
+Future<void> getData() async {
+  const String url = "http://data.fixer.io/api/latest?access_key=" + acces_key;
 
   http.Response response = await http.get(url);
   if (response.statusCode != 200) {
     print("Take data cause a problem");
+
     return;
   }
   var others = jsonDecode(response.body);
   if (others["success"] != true) {
     print("Take data cause a problem");
+    print(jsonDecode(response.body)["error"]["info"]);
     return;
   }
   var currencies = jsonDecode(response.body)["rates"];
@@ -33,12 +35,12 @@ void getData() async {
 }
 
 void getSymbols() async {
-  const String url =
-      "http://data.fixer.io/api/symbols?access_key=cc35a9863c9b2270ec05624ca2049d73";
+  const String url = "http://data.fixer.io/api/symbols?access_key=" + acces_key;
 
   http.Response response = await http.get(url);
   if (response.statusCode != 200) {
     print("Take data cause a problem");
+
     return;
   }
   symbolsData = jsonDecode(response.body)["symbols"];

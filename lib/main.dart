@@ -1,5 +1,4 @@
 import 'package:currency_app/Screeens/MainScreen.dart';
-import 'package:currency_app/dataHandle/serviceData.dart';
 import 'package:flutter/material.dart';
 
 void main() {

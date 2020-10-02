@@ -1,5 +1,4 @@
 import 'package:currency_app/dataHandle/serviceData.dart';
-import 'package:currency_app/main.dart';
 import 'package:currency_app/utils/currencyView.dart';
 import 'package:currency_app/utils/lastUpdateView.dart';
 import 'package:currency_app/utils/searchView.dart';
@@ -21,6 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     timer = Timer.periodic(Duration(seconds: 2), (Timer t) => addValue());
+    getData();
     getSymbols();
   }
 
