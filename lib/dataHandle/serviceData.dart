@@ -34,7 +34,7 @@ Future<void> getData() async {
   print(others["success"].runtimeType); */
 }
 
-void getSymbols() async {
+Future<void> getSymbols() async {
   const String url = "http://data.fixer.io/api/symbols?access_key=" + acces_key;
 
   http.Response response = await http.get(url);

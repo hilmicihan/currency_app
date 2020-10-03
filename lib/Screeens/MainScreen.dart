@@ -15,13 +15,17 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   Timer timer;
   int counter = 0;
+  void startData() async {
+    await getData();
+    await getSymbols();
+    setState(() {});
+  }
 
   @override
   void initState() {
     super.initState();
     timer = Timer.periodic(Duration(seconds: 2), (Timer t) => addValue());
-    getData();
-    getSymbols();
+    startData();
   }
 
   void addValue() {
